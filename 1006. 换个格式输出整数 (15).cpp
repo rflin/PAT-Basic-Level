@@ -1,3 +1,6 @@
+/*
+https://www.patest.cn/contests/pat-b-practise/1006
+*/
 #include <iostream>
 using namespace std;
 int main()
