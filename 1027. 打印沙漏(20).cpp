@@ -1,4 +1,5 @@
 /*
+https://www.patest.cn/contests/pat-b-practise/1027
 解题思路，注意到行数与第一行和最后一行字符数都是相等的，根据等差数列找关系
 */
 #include <iostream>
