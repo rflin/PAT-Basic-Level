@@ -1,4 +1,5 @@
 /*
+https://www.patest.cn/contests/pat-b-practise/1003
 题目的意思是：P前的A乘PT之间的A等于T之后的A（结合第三点），其中，P和T必须为1，A至少有一个；
 第二点注释：
 xPATx正确，这是因为，
