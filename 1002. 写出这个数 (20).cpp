@@ -1,17 +1,15 @@
-#include <cstdio>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
-char array[10][5]={"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
-void Solve(int n,int level)
-{
-	if(n==0) return;
-	Solve(n/10,level+1);
-	level==1?printf("%s",array[n%10]):printf("%s ",array[n%10]);
-}
 int main()
 {
-    char ch;
-    int ans=0;
-    while((ch=getchar())!='\n') ans+=ch-'0';
-    Solve(ans,1);
+    vector<string> v={"ling","yi","er","san","si","wu","liu","qi","ba","jiu"};
+    int sum=0;
+    char cr;
+    while((cr=cin.get())!='\n') sum+=cr-'0';
+    string ans=to_string(sum);
+    for(unsigned int i=0;i<ans.size();++i)
+        i==ans.size()-1?cout<<v[ans[i]-'0']:cout<<v[ans[i]-'0']<<" ";
     return 0;
 }
