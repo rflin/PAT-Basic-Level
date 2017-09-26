@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 using namespace std;
-long long part(string &n,char d)
+int part(string &n,char d)
 {
     string str;
     for(auto &x:n)
