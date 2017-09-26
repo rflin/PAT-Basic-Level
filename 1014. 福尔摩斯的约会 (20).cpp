@@ -27,7 +27,7 @@ int hourFind(char c)
 }
 int main()
 {
-	char s1[64],s2[64],s3[64],s4[64];
+    char s1[64],s2[64],s3[64],s4[64];
     scanf("%s\n%s",s1,s2);
     int len1=strlen(s1),len2=strlen(s2);
     int i=0;
@@ -53,5 +53,5 @@ int main()
     }
     int m=i;
     printf("%02d:%02d\n",h,m);
-	return 0;
+    return 0;
 }
