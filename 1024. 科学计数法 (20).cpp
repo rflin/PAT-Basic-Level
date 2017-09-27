@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-	string s;
+    string s;
     cin>>s;
     string sign(1,s[0]),inp(1,s[1]),dep;
     int exp,i=3;
