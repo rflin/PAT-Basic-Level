@@ -1,43 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
+void toCapital(string &str)
+{
+	for(auto &x:str)
+		if(islower(x))x=toupper(x);
+}
 int main()
 {
-    string a,b,ans;
-    bool isfind[128]={0};
-    cin>>a>>b;
-    unsigned int i=0,j=0;
-    while(i<a.size()&&j<b.size())
-    {
-        if(a[i]!=b[j])
-        {
-            if(!isfind[a[i]-'\0'])
-            {
-                if(isalpha(a[i]))
-                {
-                    isfind[toupper(a[i])]=isfind[tolower(a[i])]=true;
-                    a[i]=toupper(a[i]);
-                }
-                else isfind[a[i]-'\0']=true;
-                ans+=a[i];
-            }
-            ++i;continue;
-        }
-        ++i;++j;
-    }
-    while(i<a.size())
-    {
-        if(!isfind[a[i]-'\0'])
-        {
-            if(isalpha(a[i]))
-            {
-                isfind[toupper(a[i])]=isfind[tolower(a[i])]=true;
-                a[i]=toupper(a[i]);
-            }
-            else isfind[a[i]-'\0']=true;
-            ans+=a[i];
-        }
-        ++i;
-    }
-    cout<<ans;
-    return 0;
+	string a,b;
+	vector<bool> isOutput(128,0);
+	cin>>a>>b;
+	toCapital(a);
+	toCapital(b);
+	size_t i=0,j=0;
+	while(i<a.size()&&j<b.size())
+	{
+		if(a[i]!=b[j])
+		{
+			if(isOutput[a[i]-'\0']==false)
+			{
+				isOutput[a[i]-'\0']=true;
+				cout<<a[i];
+			}
+			++i;
+		}
+		else ++i,++j;
+	}
+	while(i<a.size())
+	{
+		if(!isOutput[a[i]-'\0'])cout<<a[i];
+		++i;
+	}
+	return 0;
 }
