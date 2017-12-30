@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 bool islegal(string &s){
-    int inpcnt,dotcnt=0,deccnt=0;
+    int inpcnt=0,dotcnt=0,deccnt=0;
     for(size_t i=0;i<s.size();++i){
         if(i==0&&s[i]=='-') continue;
         if(isdigit(s[i])&&dotcnt==0){
