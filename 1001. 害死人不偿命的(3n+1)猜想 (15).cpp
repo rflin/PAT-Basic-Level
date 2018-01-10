@@ -1,14 +1,14 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
+int solve(int n)
 {
-    int n,cnt=0;
+    if(n==1) return 0;
+    return n%2==1?solve((3*n+1)/2)+1:solve(n/2)+1;
+}
+int main(int argc, char const *argv[])
+{
+    int n;
     cin>>n;
-    while(n!=1)
-    {
-    	n%2==0?n/=2:n=(3*n+1)/2;
-    	++cnt;
-    }
-    cout<<cnt;
+    cout<<solve(n);
     return 0;
 }
