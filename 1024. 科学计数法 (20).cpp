@@ -13,9 +13,7 @@ int main()
     if(exp<0)
         inp="0."+string(-exp-1,'0')+inp;
     else
-    {
         dep=((int)dep.size()>exp)?dep.insert(exp,"."):dep+string(exp-(int)dep.size(),'0');
-    }
     cout<<sign+inp+dep;
     return 0;
 }
