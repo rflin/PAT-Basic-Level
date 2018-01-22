@@ -1,33 +1,28 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-int table[102];
-void Judge(int n)
-{
-	while(n!=1)
-	{
-		n%2==0?n/=2:n=(3*n+1)/2;
-		if(n<=100&&table[n]==1) ++table[n];
-	}
-}
+map<int,int> mp;
+vector<int> nums;
 int main()
 {
-	int k,a[102];
-	cin>>k;
-	for(int i=0;i<k;++i)
+	int n;
+	scanf("%d",&n);
+	while(n--)
 	{
-		cin>>a[i];
-		table[a[i]]=1;
+		int x;
+		scanf("%d",&x);
+		nums.push_back(x);
+		mp[x]++;
+		while(x!=1)
+		{
+			x=(x%2)?(3*x+1)/2:x/2;
+			mp[x]++;
+		}
 	}
-	for(int i=0;i<k;++i) Judge(a[i]);
-	int ans[100],len=0;
-	for(int i=100;i>=0;--i)
-	{
-		if(table[i]==1) ans[len++]=i;
-	}
-	for(int i=0;i<len;++i)
-	{
-		if(i!=len-1) cout<<ans[i]<<" ";
-		else cout<<ans[i];
-	}
-    return 0;
+	vector<int> v;//结果存放
+	for(auto x:nums)
+		if(mp[x]==1) v.push_back(x);
+	sort(v.begin(),v.end(),greater<int>());
+	for(unsigned int i=0;i<v.size();++i)
+		i==v.size()-1?printf("%d",v[i]):printf("%d ",v[i]);;
+	return 0;
 }
