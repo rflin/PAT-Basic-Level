@@ -1,27 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
-    vector<string> v;
+    stack<string> stk;
     string word;
-    char c;
-    while((c=cin.get())!='\n')
+    while(cin>>word) stk.push(word);
+    while(stk.size()>1)
     {
-        if(c!=' ') word+=c;
-        else
-        {
-            v.push_back(word);
-            word="";
-        }
+        cout<<stk.top()<<" ";
+        stk.pop();
     }
-    v.push_back(word);
-    int i=v.size()-1;
-    while(i>=0)
-    {
-        i==0?cout<<v[i]:cout<<v[i]<<" ";
-        --i;
-    }
+    cout<<stk.top()<<endl;
     return 0;
 }
