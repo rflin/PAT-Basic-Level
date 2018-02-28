@@ -1,15 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
+string reverseS(string words)
+{
+	return cin>>words?reverseS(words)+" "+words:"";
+}
 int main()
 {
-    stack<string> stk;
-    string word;
-    while(cin>>word) stk.push(word);
-    while(stk.size()>1)
-    {
-        cout<<stk.top()<<" ";
-        stk.pop();
-    }
-    cout<<stk.top()<<endl;
-    return 0;
+	cout<<reverseS(string()).substr(1);
+	return 0;
 }
