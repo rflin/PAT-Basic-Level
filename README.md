@@ -2,6 +2,8 @@
 
 **浙江大学PAT题解**
 
+题目地址：https://www.patest.cn/contests/pat-b-practise
+
 **Edit by L_Aster**
 
 介绍：主要用 C++ 实现，PAT乙级完整版
