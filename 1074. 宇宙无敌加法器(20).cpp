@@ -1,54 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
-void inputTostack(stack<int> &stk)
-{
-	char k;
-	while((k=cin.get())!='\n')
-		stk.push(k-'0');
-}
-int retTop(stack<int> &stk)
-{
-	int k=stk.top();
-	stk.pop();
-	return k;
+void numrev(string &s){
+	reverse(s.begin(),s.end());
 }
 int main()
 {
-	stack<int> stk,n1,n2,ans;
-	inputTostack(stk);
-	inputTostack(n1);
-	inputTostack(n2);
-	int add=0;
-	while(!n1.empty()&&!n2.empty())
-	{
-		int sum=retTop(n1)+retTop(n2)+add,d=retTop(stk);
-		if(!d) d+=10;
-		ans.push(sum%d);
-		add=sum/d;
+	string numsys,s1,s2;
+	cin>>numsys>>s1>>s2;
+	numrev(numsys),numrev(s1),numrev(s2);
+	int maxlen=max(s1.size(),s2.size()),i=0,sr=0,syslen=numsys.size();
+	s1+=string(maxlen-(int)s1.size(),'0');
+	s2+=string(maxlen-(int)s2.size(),'0');
+	string res;
+	while(i<maxlen){
+		int idx=(numsys[i]-'0')?(numsys[i]-'0'):10;
+		int sum=(s1[i]-'0'+s2[i]-'0'+sr);
+		res+='0'+sum%idx;
+		sr=sum/idx;
+		++i;
 	}
-	while(!n1.empty())
-	{
-		int sum=retTop(n1)+add,d=retTop(stk);
-		if(!d) d+=10;
-		ans.push(sum%d);
-		add=sum/d;
+	while(sr>0&&i<syslen){
+		int idx=(numsys[i]-'0')?(numsys[i]-'0'):10;
+		res+='0'+sr%idx;
+		sr/=idx;
+		++i;
 	}
-	while(!n2.empty())
-	{
-		int sum=retTop(n2)+add,d=retTop(stk);
-		if(!d) d+=10;
-		ans.push(sum%d);
-		add=sum/d;
-	}
-	ans.push(add);
-	while(ans.size()>1&&ans.top()==0)
-		ans.pop();
-	while(!ans.empty())
-	{
-		cout<<ans.top();
-		ans.pop();
-	}
+	if(sr>0) res+='0'+sr;
+	while(res.back()=='0'&&res.size()>1) res.pop_back();
+	numrev(res);
+	cout<<res<<endl;
 	return 0;
 }
